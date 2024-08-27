@@ -13,9 +13,7 @@ export default function Layout() {
         },
       }}>
       {/* Optionally configure static options outside the route.*/}
-      <Stack.Screen name="home" options={{headerShown: false}} />
-      <Stack.Screen name="login" options={{headerShown: false}} />
-
+      <Stack.Screen name="index" options={{headerShown: false}} />
     </Stack>
   );
 }

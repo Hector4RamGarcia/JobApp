@@ -1,18 +1,33 @@
 import { router, Stack } from 'expo-router';
-import React from 'react';
-import {Pressable, Text, View, SafeAreaView, StyleSheet} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {Pressable, Text, View, SafeAreaView, StyleSheet, Animated} from 'react-native';
 import { Link } from 'expo-router';
+import { opacity } from 'react-native-reanimated/lib/typescript/reanimated2/Colors';
+
 export default function Home() {
+  const [splash] = useState (new Animated.Value(0));
+  useEffect(() => {
+    Animated.timing(
+      splash,{
+        toValue:1,
+        duration:500,
+        useNativeDriver: true,
+      }
+    ).start()
+    const timer = setTimeout(() => {
+      router.push('/Login')
+    }, 2000);
+  },[])
   return (
-    <SafeAreaView style={styles.Background}>
+    <View style={styles.Background }>
       <Stack.Screen options={{headerShown:false}}/>
-        <Pressable onPress={() => router.push('/Login')}>
-          <View style={styles.Container}>
-            <Text style={styles.Title}>Joby</Text>
-            <Text style={styles.subTitle}>Tu negocio, nuestra misión</Text>
-          </View>
-        </Pressable>
-    </SafeAreaView>
+      <Pressable style={styles.Container} onPress={() => router.push('/Login')}>   
+          <Animated.View style={[styles.Container,{opacity: splash}]}>
+              <Text style={styles.Title}>Joby</Text>
+              <Text style={styles.subTitle}>Tu negocio, nuestra misión</Text>
+          </Animated.View>
+      </Pressable>
+    </View>
   );
 }
 
