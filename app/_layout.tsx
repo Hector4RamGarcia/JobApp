@@ -14,6 +14,8 @@ export default function Layout() {
       }}>
       {/* Optionally configure static options outside the route.*/}
       <Stack.Screen name="index" options={{headerShown: false}} />
+      <Stack.Screen name="(tabs)" options={{headerShown: false}} />
+
     </Stack>
   );
 }

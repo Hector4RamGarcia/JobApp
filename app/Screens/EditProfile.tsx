@@ -1,14 +1,28 @@
 import React from 'react'
 import {StyleSheet, Text, SafeAreaView, View, TextInput, Pressable, ScrollView, Touchable, TouchableOpacity, Image} from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-
+import { Stack } from 'expo-router';
 
 export default function ProfileScreen () {
   return (
     <SafeAreaView style={styles.Background}>
       <ScrollView>
+        <Stack.Screen options={{
+          title: 'Editar Perfil',
+          headerStyle: {
+            backgroundColor: '#FFF',
+            
+          },
+          headerTintColor: '#161616',
+          headerTitleStyle: {
+            fontWeight: '600',
+            fontSize: 22
+          },
+          headerTitleAlign: 'center',
+          
+        }}/>
+
         <View style={styles.Container}>
-          <Text style={styles.subTitle}>Editar Perfil</Text>
           <View style={styles.imageContainer}>
             <Image
               source={{ uri: 'https://us.123rf.com/450wm/peopleimages12/peopleimages122202/peopleimages12220204356/181922127-llega-al-trabajo-en%C3%A9rgico-y-entusiasta-todos-los-d%C3%ADas.jpg?ver=6' }}
