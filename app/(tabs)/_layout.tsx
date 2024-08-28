@@ -1,11 +1,71 @@
 import { Tabs } from "expo-router";
+import { Ionicons, FontAwesome, AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function TabLayout () {
   return(
-    <Tabs>
-      <Tabs.Screen name="services"/>
-      <Tabs.Screen name="index"/>
-      <Tabs.Screen name="others"/>
+    <Tabs screenOptions={({ route }) => ({
+      tabBarIcon: ({ focused, color, size }) => {
+        let iconName : string;
+
+        if (route.name === 'index') {
+          iconName = focused
+            ? 'credit-card-multiple'
+            : 'credit-card-multiple-outline';
+            return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
+
+          } else if (route.name === 'services') {
+          iconName = focused ? 'bars' : 'bars';
+          return <AntDesign name={iconName} size={size} color={color} />;
+
+        }else if(route.name === 'attendance'){
+          iconName = focused ? 'account-clock' : 'account-clock-outline';
+          return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
+        }
+         else if(route.name === 'others'){
+          iconName = focused ? 'switcher' : 'switcher';
+          return <AntDesign name={iconName} size={size} color={color} />;
+        }
+      },
+      tabBarActiveTintColor: '#283891',
+      tabBarInactiveTintColor: 'gray',
+    })}>
+      <Tabs.Screen name="services" options={{
+          headerShown:false,
+          title: 'Servicios',
+          tabBarLabelStyle:{
+            fontSize: 13,
+            fontWeight: '500'
+          }
+        }}/>
+      <Tabs.Screen name="index"  options={{
+        headerShown:false,
+        tabBarBadge: 1,
+        tabBarBadgeStyle:{
+          backgroundColor: '#b20505'
+        },
+        title: 'Gastos',
+        tabBarLabelStyle:{
+          fontSize: 13,
+          fontWeight: '500'
+        }
+
+        }}/>
+      <Tabs.Screen name="attendance" options={{
+        headerShown: false,
+        title: 'Asistencia',
+        tabBarLabelStyle:{
+          fontSize: 13,
+          fontWeight: '500'
+        }
+      }}/>
+      <Tabs.Screen name="others" options={{
+        headerShown:false,
+        title: 'Otros',
+        tabBarLabelStyle:{
+          fontSize: 13,
+          fontWeight: '500'
+        }
+      }}/>
     </Tabs>
   )
 }
