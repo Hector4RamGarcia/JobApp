@@ -7,7 +7,8 @@ import {
   View, 
   TextInput, 
   Pressable, 
-  ScrollView
+  ScrollView,
+  Image
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -20,7 +21,7 @@ export default function LoginScreen ()  {
       <Stack.Screen options={{headerShown:false}}/>
       <ScrollView>
         <View style={styles.Container}>
-          <Text style={styles.Title}>Joby</Text>
+          <Image style={styles.logo} source={require('@/assets/images/job.png')}  />
           <Text style={styles.subTitle}>Ingresa con tu cuenta</Text>
           <View style={styles.InputContainer}>
             <TextInput style={styles.Input} placeholder='Correo electrónico' />
@@ -59,19 +60,37 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF'
 
   },
+  logo: {
+    marginTop: '15%',
+    width: 220, 
+    height: 180,
+    resizeMode: 'contain',
+  },
+  ContainerTitle:{
+    flexDirection:'row'
+  },
   Title: {
     fontSize: 64,
     fontWeight: "700",
     letterSpacing:1,
-    color:"#283891",
+    color:"#E6332A",
     fontFamily: "sans-serif",
     marginTop: '20%'
   },
+  Title2: {
+    fontSize: 64,
+    fontWeight: "700",
+    letterSpacing:1,
+    color:"#1D71B8",
+    fontFamily: "serif",
+    marginTop: '20%'
+  }
+  ,
   subTitle: {
     fontSize: 20,
     fontWeight: "500",
     color: '#757575',
-    marginTop: '25%',
+    marginTop: '20%',
     marginBottom: '5%'
   },
   InputContainer: {
@@ -99,7 +118,7 @@ const styles = StyleSheet.create({
   },
   Buton:{
     width: '100%',
-    backgroundColor: '#283891',
+    backgroundColor: '#1D71B8',
     borderRadius: 12,
     alignItems: 'center',
     marginTop: '12%'

@@ -84,10 +84,10 @@ const styles = StyleSheet.create({
   },
   Buton:{
     width: '100%',
-    backgroundColor: '#283891',
+    backgroundColor: '#1D71B8',
     borderRadius: 12,
     alignItems: 'center',
-    marginTop: '20%'
+    marginTop: '20%',
   },
   ButonText:{
     fontSize: 16,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: -4,
     right: -4,
-    backgroundColor: '#283891',
+    backgroundColor: '#1D71B8',
     borderRadius: 10,
     padding: 10,
     elevation: 5,

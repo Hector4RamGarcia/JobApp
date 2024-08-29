@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, SafeAreaView, View, TextInput, Pressable, ScrollView, Touchable, TouchableOpacity } from 'react-native';
+import {StyleSheet, Image, Text, SafeAreaView, View, TextInput, Pressable, ScrollView, Touchable, TouchableOpacity } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import {useState} from 'react';
 import { router, Stack } from 'expo-router';
@@ -12,7 +12,7 @@ export default function RegisterCompanyScreen  () {
       <Stack.Screen options={{headerShown:false}}/>
       <ScrollView>
         <View style={styles.Container}>
-          <Text style={styles.Title}>Joby</Text>
+          <Image style={styles.logo} source={require('@/assets/images/job.png')}  />
           <Text style={styles.subTitle}>Prueba Joby gratis hoy mismo</Text>
           <View style={styles.InputContainer}>
             <TextInput style={styles.Input} placeholder='Nombre de tu empresa'/>
@@ -89,6 +89,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF'
 
   },
+  logo: {
+    width: 120, 
+    height: 50,
+    resizeMode: 'contain',
+    marginTop: '10%'
+  },
   Title: {
     fontSize: 32,
     fontWeight: "700",
@@ -129,7 +135,7 @@ const styles = StyleSheet.create({
   },
   Buton:{
     width: '100%',
-    backgroundColor: '#283891',
+    backgroundColor: '#1D71B8',
     borderRadius: 12,
     alignItems: 'center',
     marginTop: '12%'

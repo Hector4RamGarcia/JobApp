@@ -26,7 +26,7 @@ export default function TabLayout () {
           return <AntDesign name={iconName} size={size} color={color} />;
         }
       },
-      tabBarActiveTintColor: '#283891',
+      tabBarActiveTintColor: '#1D71B8',
       tabBarInactiveTintColor: 'gray',
     })}>
       <Tabs.Screen name="services" options={{
@@ -41,7 +41,7 @@ export default function TabLayout () {
         headerShown:false,
         tabBarBadge: 1,
         tabBarBadgeStyle:{
-          backgroundColor: '#b20505'
+          backgroundColor: '#E6332A'
         },
         title: 'Gastos',
         tabBarLabelStyle:{

@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   },
   Buton:{
     width: '100%',
-    backgroundColor: '#283891',
+    backgroundColor: '#1D71B8',
     borderRadius: 12,
     alignItems: 'center',
     marginTop: '20%'
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     borderRadius: 75,
   },
   editButton: {
-    backgroundColor: '#283891',
+    backgroundColor: '#1D71B8',
     borderRadius: 10,
     width: '100%',
     padding: 10
