@@ -13,6 +13,7 @@ interface ServiceForm {
 
 export const ServiceFormsComponent = ({ title, otNumber,description, buttonStatus, status, bgColor }: ServiceForm) => {
 
+
   return (
     <View style={styles.container}>
       <View style={[styles.innerContainer, {backgroundColor:bgColor+23}]}>
