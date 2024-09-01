@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import { StyleSheet } from 'react-native'
 import { Section1, Section2 } from '../../components/ServiceInputComponents';
 import { Stack } from 'expo-router';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 export default function ServiceForm(){
@@ -11,21 +12,23 @@ export default function ServiceForm(){
     <ScrollView>
       <Stack.Screen options={{
         title: 'Inspección y condiciones del servicio',
-        headerStyle: {
-          backgroundColor: '#FFF',  
-        },
-        headerTintColor: '#161616',
+        headerBackground: () => (
+          <LinearGradient
+            colors={['#5BC4F1', '#1D71B8']}
+            style={{ flex: 1 }}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+          />
+        ),
+        headerTintColor: '#fff',
         headerTitleStyle: {
         fontWeight: '600',
-          fontSize: 22
+          fontSize: 18
         },
         headerTitleAlign: 'center',  
         }}/>
       <Section1/>
       <Section2/>
-      <Text>
-        Formulario del servicio
-      </Text>
     </ScrollView>
   )
 }

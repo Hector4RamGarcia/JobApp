@@ -5,6 +5,7 @@ import {StyleSheet} from 'react-native';
 import { ScrollView } from 'react-native';
 import {ServiceDetails, PaymentDetails} from '../../components/ServiceDetails';
 import { router, Stack } from 'expo-router';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 export default function DetailsServicesScreen() {
@@ -15,10 +16,15 @@ export default function DetailsServicesScreen() {
     <ScrollView>
       <Stack.Screen options={{
         title: 'Detalles del servicio',
-        headerStyle: {
-          backgroundColor: '#FFF',  
-        },
-        headerTintColor: '#161616',
+        headerBackground: () => (
+          <LinearGradient
+            colors={['#5BC4F1', '#1D71B8']}
+            style={{ flex: 1 }}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+          />
+        ),
+        headerTintColor: '#fff',
         headerTitleStyle: {
         fontWeight: '600',
           fontSize: 22
@@ -60,7 +66,7 @@ export default function DetailsServicesScreen() {
         >
           <Text style={styles.buttonText}>Cancelar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, {backgroundColor:"#283891"}]}
+        <TouchableOpacity style={[styles.button, {backgroundColor:"#E6332A"}]}
           onPress={() => router.navigate('/Screens/ServicesForms')}
         >
           <Text style={styles.buttonText}>Comenzar</Text>

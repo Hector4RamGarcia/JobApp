@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import { ServiceFormsComponent } from '../../components/ServiceFormsComponent'
 import { StyleSheet } from 'react-native';
 import { router, Stack } from 'expo-router';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function ServicesForms() {
 
@@ -13,10 +14,15 @@ export default function ServicesForms() {
     <View>
       <Stack.Screen options={{
         title: 'Formularios del servicio',
-        headerStyle: {
-          backgroundColor: '#FFF',  
-        },
-        headerTintColor: '#161616',
+        headerBackground: () => (
+          <LinearGradient
+            colors={['#5BC4F1', '#1D71B8']}
+            style={{ flex: 1 }}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+          />
+        ),
+        headerTintColor: '#fff',
         headerTitleStyle: {
         fontWeight: '600',
           fontSize: 22
@@ -64,7 +70,7 @@ export default function ServicesForms() {
 
 const styles = StyleSheet.create({
     button: {
-      backgroundColor: '#283891',
+      backgroundColor: '#E6332A',
       padding: 10,
       borderRadius: 10,
       margin: 10,
