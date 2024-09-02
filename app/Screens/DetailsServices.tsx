@@ -6,28 +6,27 @@ import { ScrollView } from 'react-native';
 import {ServiceDetails, PaymentDetails} from '../../components/ServiceDetails';
 import { router, Stack } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import GradientBackground from '@/components/GradientBackground';
 
 
 export default function DetailsServicesScreen() {
-
-  const navigation = useNavigation();
-
   return (
-    <SafeAreaView style={styles.Background}>
-      <ScrollView>
-        <View style={styles.Container}>          
+    <View style={styles.Background}>
+      <ScrollView contentContainerStyle={{flexGrow:1}}>
+        <GradientBackground style={styles.Container}>          
           <Stack.Screen options={{
             title: 'Detalle de Servicio',
-            headerStyle: {
-              backgroundColor: '#FFF',
-            },
-            headerTintColor: '#161616',
+            headerBackground: () => (
+              <GradientBackground style={{ flex: 1 }} children={undefined} />
+            ),
+            headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: '600',
               fontSize: 16, 
             },
             headerTitleAlign: 'center',
           }}/>
+          
         <ServiceDetails 
           serviceTitle="Starbucks | Plaza Palmas"
           otNumber="OT-1095"
@@ -54,7 +53,7 @@ export default function DetailsServicesScreen() {
           total="$1,500.00"
           paymentMethod="Efectivo"
         />
-        
+
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button}
             onPress={() => {
@@ -63,26 +62,24 @@ export default function DetailsServicesScreen() {
           >
             <Text style={styles.buttonText}>Cancelar</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.button, {backgroundColor:"#1D71B8"}]}
+          <TouchableOpacity style={[styles.button, {backgroundColor:"#E6332A"}]}
             onPress={() => router.navigate('/Screens/ServicesForms')}
           >
             <Text style={styles.buttonText}>Comenzar</Text>
           </TouchableOpacity>
         </View>
-        </View>
+        </GradientBackground>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   Background: {
-    backgroundColor: '#FFF',
-    flex:1
+    flex:1, 
   },
   Container: {
     flex:1,
-    backgroundColor: '#FFF'
   },
   buttonContainer: {
     flexDirection: 'row',

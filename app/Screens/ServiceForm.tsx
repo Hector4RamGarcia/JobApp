@@ -44,10 +44,9 @@ const styles = StyleSheet.create({
   },
   Container: {
     flex:1,
-    backgroundColor: '#FFF'
   },
   button: {
-    backgroundColor: '#1D71B8',
+    backgroundColor: '#E6332A',
     padding: 10,
     borderRadius: 10,
     margin: 10,

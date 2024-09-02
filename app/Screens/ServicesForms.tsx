@@ -4,7 +4,6 @@ import { useNavigation } from '@react-navigation/native'
 import { ServiceFormsComponent } from '../../components/ServiceFormsComponent'
 import { StyleSheet } from 'react-native';
 import { router, Stack } from 'expo-router';
-import { LinearGradient } from 'expo-linear-gradient';
 import GradientBackground from '@/components/GradientBackground';
 
 export default function ServicesForms() {
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
     flex:1,
   },
     button: {
-      backgroundColor: '#1D71B8',
+      backgroundColor: '#E6332A',
       padding: 10,
       borderRadius: 10,
       margin: 10,
