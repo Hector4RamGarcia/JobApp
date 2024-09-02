@@ -5,6 +5,7 @@ import { ServiceFormsComponent } from '../../components/ServiceFormsComponent'
 import { StyleSheet } from 'react-native';
 import { router, Stack } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
+import GradientBackground from '@/components/GradientBackground';
 
 export default function ServicesForms() {
 
@@ -13,13 +14,13 @@ export default function ServicesForms() {
   return (
     <SafeAreaView style={styles.Background}>
       <ScrollView>
-        <View style={styles.Container}>
+        <GradientBackground style={styles.Container}>
           <Stack.Screen options={{
             title: 'Formularios de Servicio',
-            headerStyle: {
-              backgroundColor: '#FFF',
-            },
-            headerTintColor: '#161616',
+            headerBackground: () => (
+              <GradientBackground style={{ flex: 1 }} children={undefined} />
+            ),
+            headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: '600',
               fontSize: 16, 
@@ -34,7 +35,6 @@ export default function ServicesForms() {
             status="En Proceso"
             bgColor="#F5C443"
           />
-
           <ServiceFormsComponent
             title="Checklist de revisión"
             otNumber="FO-1450"
@@ -43,7 +43,6 @@ export default function ServicesForms() {
             status="Pendiente"
             bgColor="#283891"
           />
-
           <ServiceFormsComponent
             title="Auditoría ISO 27001"
             otNumber="FO-1415"
@@ -51,14 +50,13 @@ export default function ServicesForms() {
             buttonStatus="Editar"
             status="Completado"
             bgColor="#52B46B"
-            />
-
+          />
           <TouchableOpacity
             style={styles.button}
           >
             <Text style={styles.buttonText}>Finalizar Servicio</Text>
           </TouchableOpacity>
-        </View>
+      </GradientBackground>
       </ScrollView>
     </SafeAreaView>
   )
@@ -71,7 +69,6 @@ const styles = StyleSheet.create({
   },
   Container: {
     flex:1,
-    backgroundColor: '#FFF'
   },
     button: {
       backgroundColor: '#1D71B8',

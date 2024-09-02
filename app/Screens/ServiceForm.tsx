@@ -2,22 +2,23 @@ import React, {useState} from 'react'
 import { SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { StyleSheet } from 'react-native'
-import { Section1, Section2 } from '../../components/ServiceInputComponents';
+import { Section1, Section2, Section3 } from '../../components/ServiceInputComponents';
 import { Stack } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
+import GradientBackground from '@/components/GradientBackground';
 
 
 export default function ServiceForm(){
   return (
     <SafeAreaView style={styles.Background}>
       <ScrollView>
-        <View style={styles.Container}>
+        <GradientBackground style={styles.Container}>
         <Stack.Screen options={{
             title: 'Inspección y Condiciones del lugar',
-            headerStyle: {
-              backgroundColor: '#FFF',
-            },
-            headerTintColor: '#161616',
+            headerBackground: () => (
+              <GradientBackground style={{ flex: 1 }} children={undefined} />
+            ),
+            headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: '600',
               fontSize: 16, 
@@ -27,10 +28,11 @@ export default function ServiceForm(){
           }}/>
           <Section1/>
           <Section2/>
+          <Section3/>
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Guardar</Text>
           </TouchableOpacity>
-        </View>
+        </GradientBackground>
       </ScrollView>
     </SafeAreaView>
   )
@@ -38,7 +40,6 @@ export default function ServiceForm(){
 
 const styles = StyleSheet.create({
   Background: {
-    backgroundColor: '#FFF',
     flex:1
   },
   Container: {

@@ -44,7 +44,7 @@ export const Section2 = () => {
       <View style={styles.innerContainer}>
         <View style={{flexDirection:"row", justifyContent:"space-between"}}>
           <Text style={styles.serviceTitle}>Sección dos</Text>
-          <Text style={styles.serviceTitle}>1/10</Text>
+          <Text style={styles.serviceTitle}>2/10</Text>
         </View>
         <View style={styles.innerContainer}>
           <Text>Pregunta de tipo texto corto</Text>
@@ -87,6 +87,74 @@ export const Section2 = () => {
     </View>
   );
 };
+
+export const Section3 = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.innerContainer}>
+        <View style={{flexDirection:"row", justifyContent:"space-between"}}>
+          <Text style={styles.serviceTitle}>Sección tres</Text>
+          <Text style={styles.serviceTitle}>3/10</Text>
+        </View>
+        <View style={styles.innerContainer}>
+          <Text>Firma</Text>
+        </View>
+      </View>
+    </View>
+  )
+};
+
+
+// export const Section3 = ({setIsSignatureActive}) => {
+//   const {colorText,handleClear,handleColorChange,handleEmpty,handleOK,handleRedo,handleSave, handleUndo, ref, setPenColor,signature} = UseSignature();
+//   const [isWriting, setIsWriting] = useState(false);
+
+//   const startWriting = () => {
+//     setIsWriting(true);
+//     setIsSignatureActive(true);
+//   };
+
+//   const confirmSignature = () => {
+//     handleOK;
+//     setIsWriting(false);
+//     setIsSignatureActive(false);
+//   };
+  
+//   return (
+//     <View>
+//       <View style={styles.container}>
+//         <View style={styles.innerContainer}>
+//           <View style={{flexDirection:"row", justifyContent:"space-between"}}>
+//             <Text style={styles.serviceTitle}>Sección tres</Text>
+//             <Text style={styles.serviceTitle}>1/10</Text>
+//           </View>
+//           <View style={styles.signatureContainer}>
+//             {!isWriting && 
+//             <TouchableOpacity onPress={startWriting}>
+//               <Text>Firma aqui</Text>
+//             </TouchableOpacity>}
+//             {isWriting && 
+//               <SignatureScreen
+//                 ref={ref}
+//                 onOK={confirmSignature}
+//                 onEmpty={handleEmpty}
+//                 onClear={handleClear}
+//                 onColorChange={handleColorChange}
+//                 onUndo={handleUndo}
+//                 onRedo={handleRedo}
+//                 onSave={handleSave}
+//                 setIsSignatureActive={setIsSignatureActive} // Pass setIsSignatureActive to SignatureScreen
+//               />
+//             }
+            
+//           </View>
+//         </View>
+//       </View>
+//     </View>
+
+//   );
+// };
+
 
 const styles = StyleSheet.create({
   container: {
