@@ -1,8 +1,7 @@
-// import SignatureScreen from 'react-native-signature-canvas'
-import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity} from "react-native";
-import React, { useRef, useState } from "react";
+import { View, Text, StyleSheet, TextInput } from "react-native";
 import { Picker } from '@react-native-picker/picker';
-// import {UseSignature} from "../hooks/UseSignature";
+import React, { useState } from "react";
+import { Checkbox } from 'react-native-paper';
 
 export const Section1 = () => {
   return (
@@ -61,63 +60,33 @@ export const Section2 = () => {
         <View style={styles.innerContainer}>
           <Text>Pregunta de selección múltiple:</Text>
           <View style={styles.checkboxContainer}>
-            <Text style={styles.checkboxLabel}>Opción 3</Text>
+            <View style={styles.checkboxItem}>
+              <Checkbox
+                status={selectedValues.option1 ? 'checked' : 'unchecked'}
+                onPress={() => setSelectedValues({...selectedValues, option1: !selectedValues.option1})}
+              />
+              <Text style={styles.checkboxLabel}>Opción 1</Text>
+            </View>
+            <View style={styles.checkboxItem}>
+              <Checkbox
+                status={selectedValues.option2 ? 'checked' : 'unchecked'}
+                onPress={() => setSelectedValues({...selectedValues, option2: !selectedValues.option2})}
+              />
+              <Text style={styles.checkboxLabel}>Opción 2</Text>
+            </View>
+            <View style={styles.checkboxItem}>
+              <Checkbox
+                status={selectedValues.option3 ? 'checked' : 'unchecked'}
+                onPress={() => setSelectedValues({...selectedValues, option3: !selectedValues.option3})}
+              />
+              <Text style={styles.checkboxLabel}>Opción 3</Text>
+            </View>
           </View>
         </View>
       </View>
     </View>
   );
 };
-
-// export const Section3 = ({setIsSignatureActive}) => {
-//   const {colorText,handleClear,handleColorChange,handleEmpty,handleOK,handleRedo,handleSave, handleUndo, ref, setPenColor,signature} = UseSignature();
-//   const [isWriting, setIsWriting] = useState(false);
-
-//   const startWriting = () => {
-//     setIsWriting(true);
-//     setIsSignatureActive(true);
-//   };
-
-//   const confirmSignature = () => {
-//     handleOK;
-//     setIsWriting(false);
-//     setIsSignatureActive(false);
-//   };
-  
-//   return (
-//     <View>
-//       <View style={styles.container}>
-//         <View style={styles.innerContainer}>
-//           <View style={{flexDirection:"row", justifyContent:"space-between"}}>
-//             <Text style={styles.serviceTitle}>Sección tres</Text>
-//             <Text style={styles.serviceTitle}>1/10</Text>
-//           </View>
-//           <View style={styles.signatureContainer}>
-//             {!isWriting && 
-//             <TouchableOpacity onPress={startWriting}>
-//               <Text>Firma aqui</Text>
-//             </TouchableOpacity>}
-//             {isWriting && 
-//               <SignatureScreen
-//                 ref={ref}
-//                 onOK={confirmSignature}
-//                 onEmpty={handleEmpty}
-//                 onClear={handleClear}
-//                 onColorChange={handleColorChange}
-//                 onUndo={handleUndo}
-//                 onRedo={handleRedo}
-//                 onSave={handleSave}
-//                 setIsSignatureActive={setIsSignatureActive} // Pass setIsSignatureActive to SignatureScreen
-//               />
-//             }
-            
-//           </View>
-//         </View>
-//       </View>
-//     </View>
-
-//   );
-// };
 
 const styles = StyleSheet.create({
   container: {
@@ -140,20 +109,6 @@ const styles = StyleSheet.create({
     shadowRadius: 4.65,
     elevation: 2,
   },
-  signatureContainer: {
-    height: 400,
-    marginTop:10,
-    backgroundColor: '#F3F4F6',
-    borderRadius: 10,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.10,
-    shadowRadius: 4.65,
-    elevation: 2,
-  },
   serviceTitle: {
     fontSize: 14,
     color: '#000',
@@ -164,8 +119,12 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   checkboxContainer: {
+    flexDirection: 'column',
+  },
+  checkboxItem: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginVertical: 5,
   },
   checkboxLabel: {
     marginLeft: 8,
