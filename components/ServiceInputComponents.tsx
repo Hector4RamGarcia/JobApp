@@ -14,8 +14,12 @@ export const Section1 = () => {
         </View>
         <View style={styles.innerContainer}>
           <Text>Pregunta de tipo texto corto</Text>
+          <TextInput
+            placeholder="Escribe aquí..."
+          />
         </View>
         <View style={styles.innerContainer}>
+          <Text>Pregunta de tipo texto largo</Text>
           <TextInput
             style={styles.textArea}
             multiline={true}
@@ -57,7 +61,6 @@ export const Section2 = () => {
         <View style={styles.innerContainer}>
           <Text>Pregunta de selección múltiple:</Text>
           <View style={styles.checkboxContainer}>
-
             <Text style={styles.checkboxLabel}>Opción 3</Text>
           </View>
         </View>

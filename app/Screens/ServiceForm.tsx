@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import { SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { StyleSheet } from 'react-native'
 import { Section1, Section2 } from '../../components/ServiceInputComponents';
@@ -9,33 +9,44 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 export default function ServiceForm(){
   return (
-    <ScrollView>
-      <Stack.Screen options={{
-        title: 'Inspección y condiciones del servicio',
-        headerBackground: () => (
-          <LinearGradient
-            colors={['#5BC4F1', '#1D71B8']}
-            style={{ flex: 1 }}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-          />
-        ),
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-        fontWeight: '600',
-          fontSize: 18
-        },
-        headerTitleAlign: 'center',  
-        }}/>
-      <Section1/>
-      <Section2/>
-    </ScrollView>
+    <SafeAreaView style={styles.Background}>
+      <ScrollView>
+        <View style={styles.Container}>
+        <Stack.Screen options={{
+            title: 'Inspección y Condiciones del lugar',
+            headerStyle: {
+              backgroundColor: '#FFF',
+            },
+            headerTintColor: '#161616',
+            headerTitleStyle: {
+              fontWeight: '600',
+              fontSize: 16, 
+            },
+            headerTitleAlign: 'center',
+            
+          }}/>
+          <Section1/>
+          <Section2/>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Guardar</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
+  Background: {
+    backgroundColor: '#FFF',
+    flex:1
+  },
+  Container: {
+    flex:1,
+    backgroundColor: '#FFF'
+  },
   button: {
-    backgroundColor: '#283891',
+    backgroundColor: '#1D71B8',
     padding: 10,
     borderRadius: 10,
     margin: 10,

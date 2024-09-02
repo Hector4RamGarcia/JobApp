@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { View, Text, StyleSheet } from 'react-native';
+import { router } from 'expo-router';
 
 interface ServiceForm {
   title: string;
@@ -23,7 +24,11 @@ export const ServiceFormsComponent = ({ title, otNumber,description, buttonStatu
         </View>
         <Text style={styles.serviceDescription}>{description}</Text>
         <View style={{flexDirection:"row", justifyContent:"space-between"}}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              router.navigate("/Screens/ServiceForm")
+            }}
+          >
             <Text style={[styles.button,{backgroundColor:bgColor}]}>{buttonStatus}</Text>
           </TouchableOpacity>
             <View style={styles.statusContainer}>
