@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   innerContainer: {
     width: '96%',
     padding: 10,
-    backgroundColor: '#F3F4F6',
+    backgroundColor: 'rgba(40, 56, 145, 0.1)',
     borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: {
@@ -101,7 +101,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.10,
     shadowRadius: 4.65,
-    elevation: 2,
   },
   serviceTitle: {
     fontSize: 14,

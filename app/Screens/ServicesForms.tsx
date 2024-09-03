@@ -32,7 +32,7 @@ export default function ServicesForms() {
             description="* Sección uno, *Sección dos, *Sección tres."
             buttonStatus="Continuar"
             status="En Proceso"
-            bgColor="#F5C443"
+            bgColor="rgba(40, 56, 145, 0.1)"
           />
           <ServiceFormsComponent
             title="Checklist de revisión"
@@ -40,7 +40,7 @@ export default function ServicesForms() {
             description="* Sección uno, *Sección dos, *Sección tres."
             buttonStatus="Comenzar"
             status="Pendiente"
-            bgColor="#283891"
+            bgColor="rgba(40, 56, 145, 0.1)"
           />
           <ServiceFormsComponent
             title="Auditoría ISO 27001"
@@ -48,7 +48,7 @@ export default function ServicesForms() {
             description="* Sección uno, *Sección dos, *Sección tres."
             buttonStatus="Editar"
             status="Completado"
-            bgColor="#52B46B"
+            bgColor="rgba(40, 56, 145, 0.1)"
           />
           <TouchableOpacity
             style={styles.button}

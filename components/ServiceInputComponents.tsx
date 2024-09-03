@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TextInput } from "react-native";
+import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity } from "react-native";
 import { Picker } from '@react-native-picker/picker';
 import React, { useState } from "react";
 import { Checkbox } from 'react-native-paper';
@@ -11,14 +11,14 @@ export const Section1 = () => {
           <Text style={styles.serviceTitle}>Sección uno</Text>
           <Text style={styles.serviceTitle}>1/10</Text>
         </View>
-        <View style={styles.innerContainer}>
-          <Text>Pregunta de tipo texto corto</Text>
+        <View style={[styles.innerContainer, {backgroundColor:"rgba(40, 56, 245,0.1)"}]}>
+          <Text style={styles.subtitle}>Pregunta de tipo texto corto</Text>
           <TextInput
             placeholder="Escribe aquí..."
           />
         </View>
-        <View style={styles.innerContainer}>
-          <Text>Pregunta de tipo texto largo</Text>
+        <View style={[styles.innerContainer, {backgroundColor:"rgba(40, 56, 245,0.1)"}]}>
+          <Text style={styles.subtitle}>Pregunta de tipo texto largo</Text>
           <TextInput
             style={styles.textArea}
             multiline={true}
@@ -46,8 +46,8 @@ export const Section2 = () => {
           <Text style={styles.serviceTitle}>Sección dos</Text>
           <Text style={styles.serviceTitle}>2/10</Text>
         </View>
-        <View style={styles.innerContainer}>
-          <Text>Pregunta de tipo texto corto</Text>
+        <View style={[styles.innerContainer, {backgroundColor:"rgba(40, 56, 245,0.1)"}]}>
+          <Text style={styles.subtitle}>Pregunta de tipo texto corto</Text>
           <Picker
             selectedValue={selectedValue}
             onValueChange={(itemValue) => setSelectedValue(itemValue)}
@@ -57,11 +57,12 @@ export const Section2 = () => {
             <Picker.Item label="Opción 3" value="option3" />
           </Picker>
         </View>
-        <View style={styles.innerContainer}>
-          <Text>Pregunta de selección múltiple:</Text>
+        <View style={[styles.innerContainer, {backgroundColor:"rgba(40, 56, 245,0.1)"}]}>
+          <Text style={styles.subtitle}>Pregunta de selección múltiple:</Text>
           <View style={styles.checkboxContainer}>
             <View style={styles.checkboxItem}>
               <Checkbox
+                color="#dadada"
                 status={selectedValues.option1 ? 'checked' : 'unchecked'}
                 onPress={() => setSelectedValues({...selectedValues, option1: !selectedValues.option1})}
               />
@@ -69,6 +70,7 @@ export const Section2 = () => {
             </View>
             <View style={styles.checkboxItem}>
               <Checkbox
+                color="#dadada"
                 status={selectedValues.option2 ? 'checked' : 'unchecked'}
                 onPress={() => setSelectedValues({...selectedValues, option2: !selectedValues.option2})}
               />
@@ -76,6 +78,7 @@ export const Section2 = () => {
             </View>
             <View style={styles.checkboxItem}>
               <Checkbox
+                color="#dadada"
                 status={selectedValues.option3 ? 'checked' : 'unchecked'}
                 onPress={() => setSelectedValues({...selectedValues, option3: !selectedValues.option3})}
               />
@@ -96,8 +99,16 @@ export const Section3 = () => {
           <Text style={styles.serviceTitle}>Sección tres</Text>
           <Text style={styles.serviceTitle}>3/10</Text>
         </View>
-        <View style={styles.innerContainer}>
-          <Text>Firma</Text>
+        <View style={[styles.innerContainer, {backgroundColor:"rgba(40, 56, 245,0.1)"}]}>
+          <Text style={styles.subtitle}>Firma</Text>
+          <View style={styles.imageContainer}>
+            <TouchableOpacity>
+              <Image
+                source={require("../assets/images/signature.png")}
+                style={{width: 100, height: 100}}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>
@@ -166,7 +177,7 @@ const styles = StyleSheet.create({
     width: '96%',
     padding: 10,
     marginTop:10,
-    backgroundColor: '#F3F4F6',
+    backgroundColor: 'rgba(40, 56, 145, 0.1)',
     borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: {
@@ -175,12 +186,19 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.10,
     shadowRadius: 4.65,
-    elevation: 2,
+  },
+  imageContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   serviceTitle: {
     fontSize: 14,
     color: '#000',
     fontWeight: 'bold',
+  },
+  subtitle: {
+    color: '#dadada',
   },
   textArea: {
     height: 100,

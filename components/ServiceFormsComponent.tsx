@@ -17,7 +17,7 @@ export const ServiceFormsComponent = ({ title, otNumber,description, buttonStatu
 
   return (
     <View style={styles.container}>
-      <View style={[styles.innerContainer, {backgroundColor:bgColor+23}]}>
+      <View style={[styles.innerContainer, {backgroundColor:bgColor}]}>
         <View style={{flexDirection:"row", justifyContent:"space-between"}}>
           <Text style={styles.serviceTitle}>{title}</Text>
           <Text style={styles.serviceTitle}>{otNumber}</Text>
@@ -29,10 +29,10 @@ export const ServiceFormsComponent = ({ title, otNumber,description, buttonStatu
               router.navigate("/Screens/ServiceForm")
             }}
           >
-            <Text style={[styles.button,{backgroundColor:bgColor}]}>{buttonStatus}</Text>
+            <Text style={[styles.button]}>{buttonStatus}</Text>
           </TouchableOpacity>
             <View style={styles.statusContainer}>
-              <Text style={[styles.statusText, {color:bgColor}]}>{status}</Text>
+              <Text style={[styles.statusText]}>{status}</Text>
             </View>
         </View>
       </View>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   statusText: {
     fontSize: 14,
-    color: '#283891',
+    color: '#dadada',
     fontWeight: 'bold',
   },
   button: {
