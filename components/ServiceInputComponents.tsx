@@ -1,7 +1,8 @@
-import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity, Modal } from "react-native";
 import { Picker } from '@react-native-picker/picker';
 import React, { useState } from "react";
 import { Checkbox } from 'react-native-paper';
+import GradientBackground from "./GradientBackground";
 
 export const Section1 = () => {
   return (
@@ -92,6 +93,17 @@ export const Section2 = () => {
 };
 
 export const Section3 = () => {
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => {
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
@@ -102,7 +114,7 @@ export const Section3 = () => {
         <View style={[styles.innerContainer, {backgroundColor:"rgba(40, 56, 245,0.1)"}]}>
           <Text style={styles.subtitle}>Firma</Text>
           <View style={styles.imageContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={openModal}>
               <Image
                 source={require("../assets/images/signature.png")}
                 style={{width: 100, height: 100}}
@@ -111,6 +123,20 @@ export const Section3 = () => {
           </View>
         </View>
       </View>
+      <Modal
+        visible={modalVisible}
+        animationType="slide"
+        transparent={false}
+      >
+        <GradientBackground style={{flex:1}}>
+          <View style={styles.modalContainer}>
+            <Text style={styles.modalTitle}>Firma aquí</Text>
+            <TouchableOpacity onPress={closeModal} style={styles.closeButton}>
+              <Text style={styles.closeButtonText}>Cerrar</Text>
+            </TouchableOpacity>
+          </View>
+        </GradientBackground>
+      </Modal>
     </View>
   )
 };
@@ -199,6 +225,28 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     color: '#dadada',
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(40, 56, 145, 0.1)',
+    margin: 10,
+  },
+  modalTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  closeButton: {
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: '#2838F5',
+    borderRadius: 5,
+  },
+  closeButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
   },
   textArea: {
     height: 100,
