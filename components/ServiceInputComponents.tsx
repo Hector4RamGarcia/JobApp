@@ -98,19 +98,18 @@ export const Section3 = ({setIsSignatureActive}) => {
 
   const {colorText,handleClear,handleColorChange,handleEmpty,handleOK,handleRedo,handleUndo,ref,setPenColor,signature} = UseSignature();
 
-  const confirmSignature = () => {
-    handleOK;
+  const [signatureImage, setSignatureImage] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
+  
+  const confirmSignature = (signature) => {
+    setSignatureImage(signature);
+    setModalVisible(false); 
     setIsSignatureActive(false);
   };
 
-  const [modalVisible, setModalVisible] = useState(false);
 
   const openModal = () => {
     setModalVisible(true);
-  };
-
-  const closeModal = () => {
-    setModalVisible(false);
   };
 
   return (
@@ -120,14 +119,20 @@ export const Section3 = ({setIsSignatureActive}) => {
           <Text style={styles.serviceTitle}>Sección tres</Text>
           <Text style={styles.serviceTitle}>3/10</Text>
         </View>
-        <View style={[styles.innerContainer, {backgroundColor:"rgba(40, 56, 245,0.1)"}]}>
-          <Text style={styles.subtitle}>Firma</Text>
+        <View style={[styles.innerContainer, {backgroundColor:"#fff"}]}>
           <View style={styles.imageContainer}>
             <TouchableOpacity onPress={openModal}>
-              <Image
-                source={require("../assets/images/signature.png")}
-                style={{width: 100, height: 100}}
-              />
+              {signatureImage ? (
+                <Image
+                  source={{uri: signatureImage}}
+                  style={{width: 100, height: 100}}
+                />
+              ):(
+                <Image
+                  source={require("../assets/images/signature.png")}
+                  style={{width: 100, height: 100}}
+                />
+              )}
             </TouchableOpacity>
           </View>
         </View>
@@ -139,7 +144,6 @@ export const Section3 = ({setIsSignatureActive}) => {
       >
         <GradientBackground style={{flex:1}}>
           <View style={styles.modalContainer}>
-            <Text style={styles.modalTitle}>Firma aquí</Text>
             <View style={styles.signatureContainer}>
               <SignatureScreen
                 ref={ref}
@@ -150,70 +154,16 @@ export const Section3 = ({setIsSignatureActive}) => {
                 onUndo={handleUndo}
                 onRedo={handleRedo}
                 onSave={handleOK}
-                setIsSignatureActive={setIsSignatureActive} 
+                setIsSignatureActive={setIsSignatureActive}
+                descriptionText='Firma aquí'
               />
             </View>
-            <TouchableOpacity onPress={closeModal} style={styles.closeButton}>
-              <Text style={styles.closeButtonText}>Guardar</Text>
-            </TouchableOpacity>
           </View>
         </GradientBackground>
       </Modal>
     </View>
   )
 };
-
-
-// export const Section3 = ({setIsSignatureActive}) => {
-//   const {colorText,handleClear,handleColorChange,handleEmpty,handleOK,handleRedo,handleSave, handleUndo, ref, setPenColor,signature} = UseSignature();
-//   const [isWriting, setIsWriting] = useState(false);
-
-//   const startWriting = () => {
-//     setIsWriting(true);
-//     setIsSignatureActive(true);
-//   };
-
-//   const confirmSignature = () => {
-//     handleOK;
-//     setIsWriting(false);
-//     setIsSignatureActive(false);
-//   };
-  
-//   return (
-//     <View>
-//       <View style={styles.container}>
-//         <View style={styles.innerContainer}>
-//           <View style={{flexDirection:"row", justifyContent:"space-between"}}>
-//             <Text style={styles.serviceTitle}>Sección tres</Text>
-//             <Text style={styles.serviceTitle}>1/10</Text>
-//           </View>
-//           <View style={styles.signatureContainer}>
-//             {!isWriting && 
-//             <TouchableOpacity onPress={startWriting}>
-//               <Text>Firma aqui</Text>
-//             </TouchableOpacity>}
-//             {isWriting && 
-//               <SignatureScreen
-//                 ref={ref}
-//                 onOK={confirmSignature}
-//                 onEmpty={handleEmpty}
-//                 onClear={handleClear}
-//                 onColorChange={handleColorChange}
-//                 onUndo={handleUndo}
-//                 onRedo={handleRedo}
-//                 onSave={handleSave}
-//                 setIsSignatureActive={setIsSignatureActive} // Pass setIsSignatureActive to SignatureScreen
-//               />
-//             }
-            
-//           </View>
-//         </View>
-//       </View>
-//     </View>
-
-//   );
-// };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -257,6 +207,7 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     fontSize: 24,
+    color: '#fff',
     fontWeight: 'bold',
     marginBottom: 20,
   },
