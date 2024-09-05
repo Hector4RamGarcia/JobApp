@@ -1,8 +1,10 @@
+import SignatureScreen from 'react-native-signature-canvas'
 import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity, Modal } from "react-native";
 import { Picker } from '@react-native-picker/picker';
 import React, { useState } from "react";
 import { Checkbox } from 'react-native-paper';
 import GradientBackground from "./GradientBackground";
+import { UseSignature } from "../hooks/UseSignature";
 
 export const Section1 = () => {
   return (
@@ -92,7 +94,14 @@ export const Section2 = () => {
   );
 };
 
-export const Section3 = () => {
+export const Section3 = ({setIsSignatureActive}) => {
+
+  const {colorText,handleClear,handleColorChange,handleEmpty,handleOK,handleRedo,handleUndo,ref,setPenColor,signature} = UseSignature();
+
+  const confirmSignature = () => {
+    handleOK;
+    setIsSignatureActive(false);
+  };
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -131,8 +140,21 @@ export const Section3 = () => {
         <GradientBackground style={{flex:1}}>
           <View style={styles.modalContainer}>
             <Text style={styles.modalTitle}>Firma aquí</Text>
+            <View style={styles.signatureContainer}>
+              <SignatureScreen
+                ref={ref}
+                onOK={confirmSignature}
+                onEmpty={handleEmpty}
+                onClear={handleClear}
+                onColorChange={handleColorChange}
+                onUndo={handleUndo}
+                onRedo={handleRedo}
+                onSave={handleOK}
+                setIsSignatureActive={setIsSignatureActive} 
+              />
+            </View>
             <TouchableOpacity onPress={closeModal} style={styles.closeButton}>
-              <Text style={styles.closeButtonText}>Cerrar</Text>
+              <Text style={styles.closeButtonText}>Guardar</Text>
             </TouchableOpacity>
           </View>
         </GradientBackground>
@@ -237,6 +259,16 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+  },
+  signatureContainer: {
+    width: '95%', 
+    height: 350,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white', 
+    borderWidth: 1,
+    borderColor: '#000',
+    borderRadius: 10,
   },
   closeButton: {
     marginTop: 20,

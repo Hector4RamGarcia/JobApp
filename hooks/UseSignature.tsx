@@ -1,41 +1,41 @@
-// import RNFetchBlob from 'rn-fetch-blob';
-// import React from 'react'; 
-// import { useRef, useState } from 'react';
-// import { Platform } from 'react-native';
-// import { PermissionsAndroid } from 'react-native';
+import RNFetchBlob from 'rn-fetch-blob';
+import React from 'react'; 
+import { useRef, useState } from 'react';
+import { Platform } from 'react-native';
+import { PermissionsAndroid } from 'react-native';
 
-// export const UseSignature = () => {
-//   const [signature, setSign] = useState(null);
-//   const [colorText, setPenColor] = useState("");
+export const UseSignature = () => {
+  const [signature, setSign] = useState(null);
+  const [colorText, setPenColor] = useState("");
 
   
-//   const ref = useRef();
+  const ref = useRef();
 
-//   const handleOK = (signature: React.SetStateAction<null>) => {
-//     if (signature) {
-//       setSign(signature);
-//     }
-//   };
+  const handleOK = (signature: React.SetStateAction<null>) => {
+    if (signature) {
+      setSign(signature);
+    }
+  };
   
-//   const handleEmpty = () => {
-//     console.log("Signature is empty");
-//   };
+  const handleEmpty = () => {
+    console.log("Signature is empty");
+  };
 
-//   const handleClear = () => {
-//     console.log("clear success!");
-//   };
+  const handleClear = () => {
+    console.log("clear success!");
+  };
 
-//   const handleColorChange = () => {
-//     ref.current.changePenColor(colorText);
-//   };
+  const handleColorChange = () => {
+    ref.current.changePenColor(colorText);
+  };
 
-//   const handleUndo = () => {
-//     ref.current.undo();
-//   };
+  const handleUndo = () => {
+    ref.current.undo();
+  };
 
-//   const handleRedo = () => {
-//     ref.current.redo();
-//   }
+  const handleRedo = () => {
+    ref.current.redo();
+  }
 
 //   const handleSave = async () => {
 //     try {
@@ -71,17 +71,17 @@
 // }
   
 
-//   return {
-//     handleOK,
-//     handleEmpty,
-//     handleClear,
-//     handleColorChange,
-//     handleUndo,
-//     handleRedo,
-//     handleSave,
-//     signature,
-//     ref,
-//     colorText,
-//     setPenColor
-//   }
-// }
+  return {
+    handleOK,
+    handleEmpty,
+    handleClear,
+    handleColorChange,
+    handleUndo,
+    handleRedo,
+    // handleSave,
+    signature,
+    ref,
+    colorText,
+    setPenColor
+  }
+}

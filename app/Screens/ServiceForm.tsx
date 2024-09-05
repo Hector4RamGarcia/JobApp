@@ -9,6 +9,7 @@ import GradientBackground from '@/components/GradientBackground';
 
 
 export default function ServiceForm(){
+  const [isSignatureActive, setIsSignatureActive] = useState(false);
   return (
     <SafeAreaView style={styles.Background}>
       <ScrollView>
@@ -28,7 +29,7 @@ export default function ServiceForm(){
           }}/>
           <Section1/>
           <Section2/>
-          <Section3/>
+          <Section3 setIsSignatureActive={setIsSignatureActive}/>
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Guardar</Text>
           </TouchableOpacity>
