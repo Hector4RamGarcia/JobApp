@@ -13,7 +13,7 @@ export default function DetailsServicesScreen() {
   return (
     <View style={styles.Background}>
       <ScrollView contentContainerStyle={{flexGrow:1}}>
-        <GradientBackground style={styles.Container}>          
+        <View style={styles.Container}>          
           <Stack.Screen options={{
             title: 'Detalle de Servicio',
             headerBackground: () => (
@@ -68,7 +68,7 @@ export default function DetailsServicesScreen() {
             <Text style={styles.buttonText}>Comenzar</Text>
           </TouchableOpacity>
         </View>
-        </GradientBackground>
+        </View>
       </ScrollView>
     </View>
   );

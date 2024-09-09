@@ -13,7 +13,7 @@ export default function ServiceForm(){
   return (
     <SafeAreaView style={styles.Background}>
       <ScrollView>
-        <GradientBackground style={styles.Container}>
+        <View style={styles.Container}>
         <Stack.Screen options={{
             title: 'Inspección y Condiciones del lugar',
             headerBackground: () => (
@@ -33,7 +33,7 @@ export default function ServiceForm(){
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Guardar</Text>
           </TouchableOpacity>
-        </GradientBackground>
+        </View>
       </ScrollView>
     </SafeAreaView>
   )

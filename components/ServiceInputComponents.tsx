@@ -142,7 +142,7 @@ export const Section3 = ({setIsSignatureActive}) => {
         animationType="slide"
         transparent={false}
       >
-        <GradientBackground style={{flex:1}}>
+        <View style={{flex:1}}>
           <View style={styles.modalContainer}>
             <View style={styles.signatureContainer}>
               <SignatureScreen
@@ -159,7 +159,7 @@ export const Section3 = ({setIsSignatureActive}) => {
               />
             </View>
           </View>
-        </GradientBackground>
+        </View>
       </Modal>
     </View>
   )
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   subtitle: {
-    color: '#dadada',
+    color: '#000',
   },
   modalContainer: {
     flex: 1,
@@ -217,8 +217,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white', 
-    borderWidth: 1,
-    borderColor: '#000',
     borderRadius: 10,
   },
   closeButton: {

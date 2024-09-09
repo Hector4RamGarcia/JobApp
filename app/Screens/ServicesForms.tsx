@@ -13,7 +13,7 @@ export default function ServicesForms() {
   return (
     <SafeAreaView style={styles.Background}>
       <ScrollView>
-        <GradientBackground style={styles.Container}>
+        <View style={styles.Container}>
           <Stack.Screen options={{
             title: 'Formularios de Servicio',
             headerBackground: () => (
@@ -55,7 +55,7 @@ export default function ServicesForms() {
           >
             <Text style={styles.buttonText}>Finalizar Servicio</Text>
           </TouchableOpacity>
-      </GradientBackground>
+      </View>
       </ScrollView>
     </SafeAreaView>
   )
