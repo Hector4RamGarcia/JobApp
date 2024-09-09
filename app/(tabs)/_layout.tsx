@@ -1,5 +1,6 @@
 import { Tabs } from "expo-router";
 import { Ionicons, FontAwesome, AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import GradientBackground from '../../components/GradientBackground';
 
 export default function TabLayout () {
   return(
@@ -26,8 +27,11 @@ export default function TabLayout () {
           return <AntDesign name={iconName} size={size} color={color} />;
         }
       },
-      tabBarActiveTintColor: '#1D71B8',
-      tabBarInactiveTintColor: 'gray',
+      tabBarActiveTintColor: '#fff',
+      tabBarInactiveTintColor: '#000',
+      tabBarBackground : () => (
+        <GradientBackground style={{ flex: 1 }} children={undefined} />
+      ),
     })}>
       <Tabs.Screen name="services" options={{
           headerShown:false,
