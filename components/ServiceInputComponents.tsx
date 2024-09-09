@@ -65,7 +65,7 @@ export const Section2 = () => {
           <View style={styles.checkboxContainer}>
             <View style={styles.checkboxItem}>
               <Checkbox
-                color="#dadada"
+                color="#1D71B8"
                 status={selectedValues.option1 ? 'checked' : 'unchecked'}
                 onPress={() => setSelectedValues({...selectedValues, option1: !selectedValues.option1})}
               />
@@ -73,7 +73,7 @@ export const Section2 = () => {
             </View>
             <View style={styles.checkboxItem}>
               <Checkbox
-                color="#dadada"
+                color="#1D71B8"
                 status={selectedValues.option2 ? 'checked' : 'unchecked'}
                 onPress={() => setSelectedValues({...selectedValues, option2: !selectedValues.option2})}
               />
@@ -81,7 +81,7 @@ export const Section2 = () => {
             </View>
             <View style={styles.checkboxItem}>
               <Checkbox
-                color="#dadada"
+                color="#1D71B8"
                 status={selectedValues.option3 ? 'checked' : 'unchecked'}
                 onPress={() => setSelectedValues({...selectedValues, option3: !selectedValues.option3})}
               />
